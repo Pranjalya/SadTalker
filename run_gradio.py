@@ -20,6 +20,7 @@ def synthesize(audio, image, video, pose_style, batch_size):
     camera_yaw_list = [0]
     camera_pitch_list = [0]
     camera_roll_list = [0]
+    batch_size = int(batch_size)
 
     current_code_path = sys.argv[0]
     current_root_path = os.path.split(current_code_path)[0]

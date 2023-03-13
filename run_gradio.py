@@ -12,7 +12,7 @@ from generate_facerender_batch import get_facerender_data
 
 
 def synthesize(audio, image, video, pose_style, batch_size):
-    pic_path = video if image is not None else image
+    pic_path = video if image is None else image
     audio_path = audio
     save_dir = os.path.join("results", strftime("%Y_%m_%d_%H.%M.%S"))
     os.makedirs(save_dir, exist_ok=True)
@@ -72,7 +72,7 @@ def synthesize(audio, image, video, pose_style, batch_size):
                                 batch_size, camera_yaw_list, camera_pitch_list, camera_roll_list)
     animate_from_coeff.generate(data, save_dir)
     video_name = data['video_name']
-    return os.path.join(save_dir, video_name)
+    return os.path.join(save_dir, f"{video_name}.mp4")
 
 
 audio = gradio.Audio(label="Driver audio", type="filepath")

@@ -72,6 +72,7 @@ def synthesize(audio, image, video, pose_style, batch_size):
                                 batch_size, camera_yaw_list, camera_pitch_list, camera_roll_list)
     animate_from_coeff.generate(data, save_dir)
     video_name = data['video_name']
+    print("LOCAL RESULT PATH : ", os.path.join(save_dir, f"{video_name}.mp4"))
     return os.path.join(save_dir, f"{video_name}.mp4")
 
 
